@@ -1,0 +1,21 @@
+<div class="row justify-content-md-center mt-5">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title mb-4">Verify Account</h5>
+                <form>
+                    <div class="mb-3">
+                        <label for="verificationCode" class="form-label">Verification Code</label>
+                        <input type="text" class="form-control" id="verificationCode" name="verificationCode" required [(ngModel)]="verificationCode" />
+                    </div>
+                    <div *ngIf="verificationError" class="alert alert-danger" role="alert">
+                        {{ verificationError }}
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button [disabled]="isVerifying || verificationCode.length === 0" (click)="verifyAccount()" type="button" class="btn btn-primary btn-block">Verify</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
